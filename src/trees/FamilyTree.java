@@ -34,7 +34,7 @@ public class FamilyTree
             // Add childNode to this node's children list. Also
             // set childNode's parent to this node.
         	children.add(childNode);
-        	childNode.parent = parent;
+        	childNode.parent = this;
         }
         
         
@@ -51,6 +51,9 @@ public class FamilyTree
             {
                 // If child.getNodeWithName(targetName) returns a non-null node,
                 // then that's the node we're looking for. Return it.
+            	if (child.getNodeWithName(targetName) != null) {
+            		return child.getNodeWithName(targetName);
+            	}
             }
             
             // Not found anywhere.
@@ -69,7 +72,7 @@ public class FamilyTree
             // draw a tree, mark any leaf node, and then mark its ancestors in order from
             // recent to ancient. Expect a question about this on the final exam.
             TreeNode currNode = parent;
-            while(currNode!=null)
+            while(currNode != null)
             {
             	ancestors.add(currNode);
             	currNode = currNode.parent;
@@ -138,7 +141,7 @@ public class FamilyTree
 		if (colonIndex < 0)
 			throw new TreeException("Invalid Line");
 		String parent = line.substring(0, colonIndex);
-		String childrenString = line.substring(colonIndex);
+		String childrenString = line.substring(colonIndex + 1);
 		String[] childrenArray = childrenString.split(",");//?? Call childrenString.split(). Check the API for details. The result will be an array
 				                    //of strings, with the separating commas thrown away.
 		
