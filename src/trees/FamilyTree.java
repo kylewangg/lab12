@@ -178,16 +178,16 @@ public class FamilyTree
 	TreeNode getMostRecentCommonAncestor(String name1, String name2) throws TreeException
 	{
 		// Get nodes for input names.
-		TreeNode node1 = root.getNodeWithName(name1)		// node whose name is name1
+		TreeNode node1 = root.getNodeWithName(name1);		// node whose name is name1
 		if (node1 == null)
-			throw new TreeException("No node witht this name");
-		TreeNode node2 = root.getNodeWithName(name2)		// node whose name is name2
+			throw new TreeException("No node with this name");
+		TreeNode node2 = root.getNodeWithName(name2);		// node whose name is name2
 		if (node2 == null)
-			throw new TreeException("No node witht this name");
+			throw new TreeException("No node with this name");
 		
 		// Get ancestors of node1 and node2.
-		ArrayList<TreeNode> ancestorsOf1 = ???
-		ArrayList<TreeNode> ancestorsOf2 = ???
+		ArrayList<TreeNode> ancestorsOf1 = node1.collectAncestorsToList();
+		ArrayList<TreeNode> ancestorsOf2 = node2.collectAncestorsToList();
 		
 		// Check members of ancestorsOf1 in order until you find a node that is also
 		// an ancestor of 2. 
